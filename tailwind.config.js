@@ -56,6 +56,9 @@ export default {
       },
       maxWidth: {
         '112': '28rem',
+      },
+      maxHeight: {
+        'post': '80vh',
       }
     },
   },

@@ -6,10 +6,11 @@ import cardImg4 from '../assets/card_img4.png'
 import cardImg5 from '../assets/card_img5.png'
 import cardImg6 from '../assets/card_img6.png'
 import Magazine from '../assets/Magazine.png'
+import MagazineWhite from '../assets/Magazine_white.png'
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
-import MagzineCards from '../components/MagzineCards'
-import { FaArrowLeft } from 'react-icons/fa'
+import MagzineCards from '../components/PodcastCards'
+import { useDarkMode } from '../hooks/DarkModeContext'
 
 const Magzine = () => {
 
@@ -135,32 +136,40 @@ const Magzine = () => {
     },
   ]
 
-  const navigate = useNavigate();
+  const {darkMode} = useDarkMode()
   return (
     <div>
-      <img src={Magazine} alt="Magazine" className='w-full h-auto lg:py-12 object-cover sm:py-6'/>
-      <div className="flex justify-between items-center lg:py-6">
-        <h2 className='font-black text-xl'>Categories</h2>
-        <div className='flex justify-center items-center'>
-          <p className="mr-6 border px-4 border-black rounded-full">
-            All        
+      <img
+        src={darkMode ? MagazineWhite : Magazine}
+        alt="Magazine"
+        className="w-full h-auto object-cover py-6 lg:py-12"
+      />
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center lg:py-6 gap-6">
+        <h2 className="font-black text-lg sm:text-xl lg:text-2xl">Categories</h2>
+        <div className="flex flex-wrap justify-start lg:justify-center items-center gap-4">
+          <p className="px-4 py-1 border border-black dark:border-white rounded-full text-sm sm:text-base lg:text-lg">
+            All
           </p>
-          <p className="mr-6 border px-4 border-black rounded-full">
-            Arts        
+          <p className="px-4 py-1 border border-black dark:border-white rounded-full text-sm sm:text-base lg:text-lg">
+            Arts
           </p>
-          <p className="mr-6 border px-4 border-black rounded-full">
-            Street Art        
+          <p className="px-4 py-1 border border-black dark:border-white rounded-full text-sm sm:text-base lg:text-lg">
+            Street Art
           </p>
-          <p className="mr-6 border px-4 border-black rounded-full">
-            Sculptures        
+          <p className="px-4 py-1 border border-black dark:border-white rounded-full text-sm sm:text-base lg:text-lg">
+            Sculptures
           </p>
         </div>
       </div>
-      {/* {console.log({cardData})} */}
+
       <MagzineCards cardData={cardData}/>
-      <div className="flex justify-between my-14">
-        <p className='font-bold flex items-center gap-2'><FaArrowLeftLong />PREVIOUS</p>
-        <p className='font-bold flex items-center gap-2'>Next <FaArrowRightLong /></p>
+      <div className="flex justify-between my-14 gap-4 sm:gap-0">
+        <p className="font-bold flex items-center gap-2">
+          <FaArrowLeftLong /> PREVIOUS
+        </p>
+        <p className="font-bold flex items-center gap-2">
+          NEXT <FaArrowRightLong />
+        </p>
       </div>
     </div>
   )

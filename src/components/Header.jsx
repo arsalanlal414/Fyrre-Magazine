@@ -124,7 +124,7 @@ const Header = () => {
   };
 
   return (
-    <header className="border-b border-slate-950 dark:border-white py-3 pt-10">
+    <header className="border-b border-slate-950 dark:border-white sm:py-3 pt-5 sm:pt-10">
       <div className="flex items-center justify-between">
         <Link to="/">
           <img src={darkMode ? logoWhite : logo} alt="Fyrre Magazine" className="w-48 md:w-56" />

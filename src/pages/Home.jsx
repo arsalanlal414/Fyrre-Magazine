@@ -96,7 +96,8 @@ const Home = () => {
     <div className='w-full'>
       <img src={darkMode ? topImgWhite : topImg} alt="Art & Life"  className="w-full h-auto object-cover py-6 lg:py-12" />
       <NewsTicker />  
-      
+
+      <img src={img} alt="dimitar" className='max-w-full max-h-max sm:hidden mt-4'/>
       <div className="w-full flex flex-wrap justify-between py-8 lg:py-16 sm:gap-8 lg:gap-0">
         <div className="w-full lg:w-1/2">
           <h3 className="text-4xl sm:text-6xl xl:text-8xl font-black leading-tight">
@@ -124,8 +125,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <img src={img} alt="dimitar" className='max-w-full max-h-max hidden sm:block'/>
 
-      <img src={img} alt="dimitar" className='max-w-full max-h-max'/>
 
       <section className="w-full flex flex-wrap lg:flex-nowrap py-10">
         <div className="flex flex-col lg:w-3/4 w-full lg:pr-16">

@@ -7,12 +7,11 @@ const Toolbar = ({title}) => {
 
   const handleGoBack = () => {
     if (window.history.length > 1) {
-        navigate(-1); // Go back if there's a history
+      window.history.go(-1); // Uses native browser history
     } else {
-        navigate('/'); // Fallback to the home page or any other route
+        navigate('/'); 
     }
 };
-
 
   return (
     <div className='flex justify-between items-center font-bold'>

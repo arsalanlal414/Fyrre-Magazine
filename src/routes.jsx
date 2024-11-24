@@ -11,10 +11,9 @@ import Podcasts from './pages/Podcasts'
 import MagzinePost from './pages/MagzinePost'
 
 const AppRoute = () => {
-  const location = useLocation();  // Use the hook inside the component
+  const location = useLocation();
 
   useEffect(() => {
-    // Set the title based on the route
     switch (location.pathname) {
       case '/':
         document.title = 'Fyrre Magazine - Home';

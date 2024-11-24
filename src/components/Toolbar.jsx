@@ -11,8 +11,8 @@ const Toolbar = ({title}) => {
 
   return (
     <div className='flex justify-between items-center font-bold'>
-        <p className='flex gap-4 justify-center items-center cursor-pointer' onClick={handleGoBack}><FaArrowLeft /> GO BACK</p>
-        <h4 className='text-2xl'>{title}</h4>
+        <p className='flex gap-2 sm:gap-4 justify-center items-center cursor-pointer' onClick={handleGoBack}><FaArrowLeft /> GO BACK</p>
+        <h4 className='text-lg md:text-2xl'>{title}</h4>
     </div>
   )
 }

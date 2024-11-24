@@ -7,16 +7,16 @@ import { useLocation } from 'react-router-dom'
 const Podcast = () => {
   const location = useLocation();  
   const { data } = location.state || {};
-  // useEffect(()=>{
-  //   const scrollToTop = () => {
-  //     window.scrollTo({
-  //       top: 0,
-  //       behavior: "smooth",
-  //     });
-  //   };
+  useEffect(()=>{
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
 
-  //   scrollToTop()
-  // },[])
+    scrollToTop()
+  },[])
   return (
     <div className='py-6 w-full'>
       <Toolbar title="PODCAST"/>

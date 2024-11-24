@@ -6,8 +6,13 @@ const Toolbar = ({title}) => {
   const navigate = useNavigate();  // Get the navigate function from useNavigate
 
   const handleGoBack = () => {
-    navigate(-1);  // This will navigate to the previous page in the browser history
-  };
+    if (window.history.length > 1) {
+        navigate(-1); // Go back if there's a history
+    } else {
+        navigate('/'); // Fallback to the home page or any other route
+    }
+};
+
 
   return (
     <div className='flex justify-between items-center font-bold'>

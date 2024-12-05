@@ -10,47 +10,11 @@ import author6 from '../assets/author6.png'
 import { useDarkMode } from '../hooks/DarkModeContext';
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import { useData } from '../hooks/DataContext'
 
 const Authors = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode();
-  const authors = [
-    {
-      name: 'Jakob Grønberg',
-      imgUrl: author1,
-      title: 'Artist',
-      city: 'Berlin' 
-    },
-    {
-      name: 'Louise Jensen',
-      imgUrl: author2,
-      title: 'Artist',
-      city: 'Stockholm' 
-    },
-    {
-      name: 'Anne Henry',
-      imgUrl: author3,
-      title: 'Photograph  ',
-      city: 'New York' 
-    },
-    {
-      name: 'Anna Nielsen',
-      imgUrl: author4,
-      title: 'Columnists',
-      city: 'Copenhagen' 
-    },
-    {
-      name: 'Jane Cooper',
-      imgUrl: author5,
-      title: 'Artist',
-      city: 'Berlin' 
-    },
-    {
-      name: 'Cristofer Vaccaro',
-      imgUrl: author6,
-      title: 'Artist',
-      city: 'Lisbon' 
-    },    
-  ]
+  const { darkMode } = useDarkMode();
+  const authors = useData();
 
   useEffect(()=>{
     const scrollToTop = () => {

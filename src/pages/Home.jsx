@@ -3,16 +3,6 @@ import topImg from '../assets/Art_Life.png';
 import topImgWhite from '../assets/Art_Life_white.png';
 import NewsTicker from '../components/NewsTicker';
 import img from '../assets/dimitar.png'
-import cover1 from '../assets/podcast-cover1.png'
-import cover2 from '../assets/podcast-cover2.png'
-import cover3 from '../assets/podcast-cover3.png'
-import author1 from '../assets/author1.png'
-import author2 from '../assets/author2.png'
-import author3 from '../assets/author3.png'
-import author4 from '../assets/author4.png'
-import author5 from '../assets/author5.png'
-import author6 from '../assets/author6.png'
-import HomeCards from '../components/HomeCards';
 import magzineCover from '../assets/magazin-cover.png'
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
@@ -20,6 +10,9 @@ import MagzineCards from '../components/PodcastCards';
 import { useDarkMode } from '../hooks/DarkModeContext';
 import Podcasts from './Podcasts';
 import PodcastCards from '../components/PodcastCards';
+import { useData } from '../hooks/DataContext';
+import AuthorsCard from '../components/AuthorsCard';
+import MagazineCards from '../components/MagzineCards';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,65 +29,11 @@ const Home = () => {
     scrollToTop()
   },[])
 
-  const podcast = [
-    {
-      name: 'The Problem of today’s cultural development',
-      imgUrl: cover1,
-      date: '16.01.2022',
-      duration: '1h 20 Min' 
-    },
-    {
-      name: 'The hidden messages of Jack Nielson',
-      imgUrl: cover2,
-      date: '16.01.2022',
-      duration: '60 Min' 
-    },
-    {
-      name: 'Behind the scenes of the street art culture',
-      imgUrl: cover3,
-      date: '16.01.2022',
-      duration: '2h 10 Min' 
-    }
-  ]
-
-  const authors = [
-    {
-      name: 'Jakob Grønberg',
-      imgUrl: author1,
-      title: 'Artist',
-      city: 'Berlin' 
-    },
-    {
-      name: 'Louise Jensen',
-      imgUrl: author2,
-      title: 'Artist',
-      city: 'Stockholm' 
-    },
-    {
-      name: 'Anne Henry',
-      imgUrl: author3,
-      title: 'Photograph  ',
-      city: 'New York' 
-    },
-    {
-      name: 'Anna Nielsen',
-      imgUrl: author4,
-      title: 'Columnists',
-      city: 'Copenhagen' 
-    },
-    {
-      name: 'Jane Cooper',
-      imgUrl: author5,
-      title: 'Artist',
-      city: 'Berlin' 
-    },
-    {
-      name: 'Cristofer Vaccaro',
-      imgUrl: author6,
-      title: 'Artist',
-      city: 'Lisbon' 
-    },    
-  ]
+  
+  const data = useData();
+  const allPodcasts = data.flatMap(author => author.podcasts);
+  const allArticles = data.flatMap(article => article.magazines);
+  const mostPopularMagazines = data[0].magazines.slice(0, 3);
 
   const handleNavigation = (data, ind) => {
     navigate(`/author/${ind}`,{
@@ -142,7 +81,7 @@ const Home = () => {
       <section className="w-full flex flex-wrap lg:flex-nowrap sm:py-12">
         <div className="flex flex-col lg:w-3/4 w-full lg:pr-16">
           <div>
-            <HomeCards />
+            <MagazineCards cardData={allArticles} limit={7}/>
           </div>
           <button
             onClick={() => navigate('/magazine')}
@@ -165,17 +104,18 @@ const Home = () => {
           <div className="mt-8">
             <h3 className="text-lg font-bold">MOST POPULAR</h3>
             <div className="flex flex-col">
-              {[1, 2, 3].map((item, idx) => (
+              {mostPopularMagazines.map((magazine, idx) => (
                 <div
                   key={idx}
-                  className={`flex gap-8 py-6 ${idx !== 2 ? 'border-b border-black' : ''
-                    }`}
+                  className={`flex gap-8 py-6 ${
+                    idx !== mostPopularMagazines.length - 1 ? 'border-b border-black' : ''
+                  }`}
                 >
-                  <p className="text-3xl font-black">{`0${item}`}</p>
+                  <p className="text-3xl font-black">{`0${idx + 1}`}</p>
                   <div className="flex flex-col justify-between gap-4">
-                    <h3 className="font-bold text-2xl">Title {item}</h3>
+                    <h3 className="font-bold text-2xl">{magazine.title}</h3>
                     <p>
-                      <span className="font-bold">Text</span> Author Name
+                      <span className="font-bold">Author:</span> {data[0].name}
                     </p>
                   </div>
                 </div>
@@ -211,7 +151,7 @@ const Home = () => {
             ALL PODCASTS <FaArrowRightLong />
           </button>
         </div>
-        <PodcastCards cardData={podcast} hidden={true} />
+        <PodcastCards cardData={allPodcasts} hidden={true} limit={3}/>
       </section>
 
       <section className="my-14 lg:pt-8 py-8 border-t border-black">
@@ -226,8 +166,8 @@ const Home = () => {
             ALL AUTHORS <FaArrowRightLong />
           </button>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mt-8 gap-2 sm:gap-0">
-          {authors.map((author, index) => (
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mt-8 gap-2 sm:gap-0">
+          {data.map((author, index) => (
             <div
               key={index}
               className="flex items-center gap-6 p-4 border border-black dark:border-white cursor-pointer"
@@ -251,7 +191,9 @@ const Home = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
+
+        <AuthorsCard limit={4} cardData={data} />
       </section>
 
     </div>

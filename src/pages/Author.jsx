@@ -131,10 +131,13 @@ import author3 from '../assets/author3.png';
 import author4 from '../assets/author4.png';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useData } from '../hooks/DataContext';
+import AuthorsCard from '../components/AuthorsCard';
 
 const Author = () => {
   const location = useLocation();
   const { data } = location.state || {};
+  const authorsData = useData();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -145,12 +148,7 @@ const Author = () => {
     navigate(`/author/${ind}`, { state: { data } });
   };
 
-  const authors = [
-    { name: 'Jakob Grønberg', imgUrl: author1, title: 'Artist', city: 'Berlin' },
-    { name: 'Louise Jensen', imgUrl: author2, title: 'Artist', city: 'Stockholm' },
-    { name: 'Anne Henry', imgUrl: author3, title: 'Photographer', city: 'New York' },
-    { name: 'Anna Nielsen', imgUrl: author4, title: 'Columnist', city: 'Copenhagen' },
-  ];
+
 
   return (
     <div className="py-6 w-full">
@@ -185,26 +183,7 @@ const Author = () => {
       </div>
       <div className="flex flex-col gap-8 py-10 mt-10 border-t border-black dark:border-white">
         <h4 className="text-3xl sm:text-5xl font-black">Best Authors</h4>
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-0">
-          {authors.map((author, index) => (
-            <div
-              key={index}
-              className="w-full sm:w-[45%] lg:w-[30%] p-4 border border-black dark:border-white flex gap-6 items-center cursor-pointer hover:shadow-lg"
-              onClick={() => handleNavigation(author, index + 1)}
-            >
-              <img src={author.imgUrl} alt="author" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full object-cover" />
-              <div className="flex flex-col gap-2">
-                <h4 className="font-bold text-lg lg:text-xl">{author.name}</h4>
-                <p className="text-sm">
-                  <span className="font-bold">Job:</span> {author.title}
-                </p>
-                <p className="text-sm">
-                  <span className="font-bold">City:</span> {author.city}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <AuthorsCard cardData={authorsData} limit={4}/>
       </div>
     </div>
   );

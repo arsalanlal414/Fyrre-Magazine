@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PodcastCards = ({ cardData, hidden }) => {
+const PodcastCards = ({ cardData, hidden, limit }) => {
+  let [start, setStart] = useState(0)
+  let [end, setEnd] = useState(limit)
 
   const navigate = useNavigate();  
 
@@ -13,7 +15,7 @@ const PodcastCards = ({ cardData, hidden }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8">
-      {cardData.map((data, index) => (
+      {cardData.slice(start,end && end).map((data, index) => (
         <div
           key={index}
           className="p-4 border border-black dark:border-white flex flex-col h- cursor-pointer"

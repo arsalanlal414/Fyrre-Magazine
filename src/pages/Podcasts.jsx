@@ -76,7 +76,7 @@ const Podcasts = () => {
         {podcasts.map((podcast, index) => (
           <div
             key={index}
-            className="w-full py-6 border-b border-black flex gap-14 last:border-none flex-col sm:flex-row"
+            className="w-full py-6 border-b border-black dark:border-white flex gap-14 last:border-none flex-col sm:flex-row"
           >
             <div className="flex items-center gap-10">
               <p className="text-3xl font-black">0{index + 1}</p>

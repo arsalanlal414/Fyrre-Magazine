@@ -42,7 +42,7 @@ const AppRoute = () => {
           <header className="w-full">
             <Header />
           </header>
-          <main className="flex-grow flex justify-center w-full">
+          <main className="flex-grow flex justify-center w-full z-50">
             <div className="w-full mx-auto">
               <Routes>
                 <Route path="/" element={<Home />} />

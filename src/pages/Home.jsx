@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import topImg from '../assets/Art_Life.png';
 import topImgWhite from '../assets/Art_Life_white.png';
 import NewsTicker from '../components/NewsTicker';
@@ -24,6 +24,17 @@ import PodcastCards from '../components/PodcastCards';
 const Home = () => {
   const navigate = useNavigate();
   const {darkMode} = useDarkMode()
+
+  useEffect(()=>{
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
+    scrollToTop()
+  },[])
 
   const podcast = [
     {

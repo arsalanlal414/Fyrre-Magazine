@@ -39,9 +39,9 @@ const AppRoute = () => {
     
       <div className="flex flex-col items-center">
         <div className="w-full flex flex-col min-h-screen screen-container px-4 lg:px-8 xl:px-12">
-          <header className="w-full">
+          <div className="w-full">
             <Header />
-          </header>
+          </div>
           <main className="flex-grow flex justify-center w-full z-50">
             <div className="w-full mx-auto">
               <Routes>

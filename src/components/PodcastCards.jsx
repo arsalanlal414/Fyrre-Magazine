@@ -6,7 +6,7 @@ const PodcastCards = ({ cardData, hidden }) => {
   const navigate = useNavigate();  
 
   const handleNavigation = (data, index) => {
-    navigate(`/magazine/${index}`, {
+    navigate(`/podcast/${index}`, {
       state: { data } 
     });
   };

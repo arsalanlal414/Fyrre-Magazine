@@ -26,7 +26,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'], // Add General Sans
+        sans: ['Manrope', 'sans-serif'], 
       },
       animation: {
         marquee: 'marquee 30s linear infinite',

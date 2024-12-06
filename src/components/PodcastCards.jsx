@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const PodcastCards = ({ cardData, hidden, limit }) => {
+const PodcastCards = ({ cardData, hidden, limit, type }) => {
   let [start, setStart] = useState(0)
   let [end, setEnd] = useState(limit)
 
   const navigate = useNavigate();  
 
   const handleNavigation = (data, index) => {
-    navigate(`/podcast/${index}`, {
+    navigate(`/${type}/${index}`, {
       state: { data } 
     });
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -20,6 +30,7 @@ const PodcastCards = ({ cardData, hidden, limit }) => {
           key={index}
           className="p-4 border border-black dark:border-white flex flex-col h- cursor-pointer"
           onClick={()=> handleNavigation(data, index+1)}
+          data-aos="fade-in"
         >
           <div className={`flex justify-between py-4 pb-8 ${hidden ? "hidden" : ""}`}>
             <p className="text-sm lg:text-base">{data?.date}</p>

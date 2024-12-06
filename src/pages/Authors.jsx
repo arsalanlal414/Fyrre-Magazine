@@ -11,6 +11,8 @@ import { useDarkMode } from '../hooks/DarkModeContext';
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 import { useData } from '../hooks/DataContext'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Authors = () => {
   const { darkMode } = useDarkMode();
@@ -35,10 +37,18 @@ const Authors = () => {
     ); 
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
+
   return (
     <div className='pb-14'>
       <div className="">
-        <img src={darkMode ? lightLogo : darkLogo} alt="Authors text" className='w-full h-auto object-cover py-6 lg:py-12'/>
+        <img src={darkMode ? lightLogo : darkLogo} alt="Authors text" className='w-full h-auto object-cover py-6 lg:py-12' data-aos="fade-down"/>
       </div>
       <div className="flex flex-wrap lg:mt-8">
         {authors.map((author, index) => (
@@ -46,6 +56,7 @@ const Authors = () => {
             key={index}
             className="w-full py-6 border-b border-black dark:border-white flex gap-4 md:gap-14 last:border-none"
             onClick={()=> handleNavigation(author, index+1)}
+            data-aos="fade-up"
           >
             <img
               src={author?.imgUrl}

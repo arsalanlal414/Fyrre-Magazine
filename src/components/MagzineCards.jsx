@@ -1,10 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import cardImg1 from '../assets/card_img1.png';
-import cardImg2 from '../assets/card_img2.png';
-import cardImg3 from '../assets/card_img3.png';
-import cardImg4 from '../assets/card_img4.png';
-import cardImg5 from '../assets/card_img5.png';
-import cardImg6 from '../assets/card_img6.png';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MagazineCards = ({cardData}) => {
   const navigate = useNavigate()
@@ -16,11 +13,20 @@ const MagazineCards = ({cardData}) => {
     ); 
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
+
   return cardData.map((data, index) => (
     <article
       key={index}
       className="py-10 flex flex-col md:flex-row gap-6 md:gap-10 border-b border-black last:border-0 cursor-pointer"
       onClick={()=> handleNavigation(data, index+1)}
+      data-aos="fade-down"
     >
       <img
         src={data.imgUrl}

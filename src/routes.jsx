@@ -27,7 +27,11 @@ const AppRoute = () => {
       case '/authors':
         document.title = 'Fyrre Magazine - Authors';
         break;
-      case '/magazine/:post':
+      case '/magazine/:id':
+        document.title = 'Fyrre Magazine - Magazine Post';
+      case '/podcast/:id':
+        document.title = 'Fyrre Magazine - Magazine Post';
+      case '/author/:id':
         document.title = 'Fyrre Magazine - Magazine Post';
         break;
       default:
@@ -47,7 +51,7 @@ const AppRoute = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/magazine" element={<Magzine />} />
-                <Route path="/magazine/:post" element={<MagzinePost />} />
+                <Route path="/magazine/:id" element={<MagzinePost />} />
                 <Route path="/podcast" element={<Podcasts />} />
                 <Route path="/podcast/:id" element={<Podcast />} />
                 <Route path="/authors" element={<Authors />} />

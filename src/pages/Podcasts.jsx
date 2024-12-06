@@ -9,6 +9,8 @@ import { useDarkMode } from '../hooks/DarkModeContext';
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Podcasts = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -65,18 +67,28 @@ const Podcasts = () => {
     });
   };
   
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
+
   return (
     <div className='pb-14'>
       <img
         src={darkMode ? podcastWhite : podcastBlack}
         alt="Authors text"
         className="w-full h-auto object-cover py-6 lg:py-12"
+        data-aos="fade-down"
       />
       <div className="flex flex-wrap mt-8">
         {podcasts.map((podcast, index) => (
           <div
             key={index}
             className="w-full py-6 border-b border-black dark:border-white flex gap-14 last:border-none flex-col sm:flex-row"
+            data-aos="fade-up"
           >
             <div className="flex items-center gap-10">
               <p className="text-3xl font-black">0{index + 1}</p>

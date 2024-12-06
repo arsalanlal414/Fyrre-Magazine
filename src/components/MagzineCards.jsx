@@ -90,7 +90,7 @@ const MagazineCards = ({ cardData }) => {
   return cardData.map((data, index) => (
     <article
       key={index}
-      className="py-10 flex flex-col md:flex-row gap-6 md:gap-10 border-b border-black last:border-0 cursor-pointer"
+      className="py-10 flex flex-col md:flex-row gap-6 md:gap-10 border-b border-black dark:border-white last:border-0 cursor-pointer"
       onClick={() => handleNavigation(data, index + 1)}
       data-aos="fade-down"
     >

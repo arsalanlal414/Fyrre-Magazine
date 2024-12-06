@@ -42,7 +42,7 @@ const MagzinePost = () => {
             {/* Left Content */}
             <div className="flex flex-wrap flex-col md:flex-row gap-4 text-md sm:text-lg w-full sm:w-auto">
                 <div className="flex gap-2 justify-between sm:justify-normal">
-                    <span className="font-bold">Text:</span>
+                    <span className="font-bold">Author:</span>
                     <span>{data?.name}</span>
                 </div>
                 <div className="flex gap-2 justify-between sm:justify-normal">

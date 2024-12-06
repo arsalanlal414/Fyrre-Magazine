@@ -41,8 +41,18 @@ const Home = () => {
   }, []);
   
   const data = useData();
-  const allPodcasts = data.flatMap(author => author.podcasts);
-  const allArticles = data.flatMap(article => article.magazines);
+  const allPodcasts = data.flatMap(author =>
+    author.podcasts.map(podcast => ({
+      ...podcast,
+      name: author.name, // Add the author's name to each article
+    }))
+  )
+  const allArticles = data.flatMap(author =>
+    author.magazines.map(magazine => ({
+      ...magazine,
+      name: author.name, // Add the author's name to each article
+    }))
+  );
   const mostPopularMagazines = data[0].magazines.slice(0, 3);
 
   const handleSubmit = (e) => {

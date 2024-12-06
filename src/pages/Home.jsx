@@ -104,6 +104,7 @@ const Home = () => {
           <button
             onClick={() => navigate('/magazine')}
             className="flex gap-4 items-center font-bold mt-4"
+            aria-label="all articles"
           >
             ALL ARTICLES <FaArrowRightLong />
           </button>
@@ -116,7 +117,7 @@ const Home = () => {
             alt="magazine cover"
             className="w-full lg:w-[370px] mx-auto"
           />
-          <button className="p-4 bg-primary-dark w-fit dark:bg-primary-light dark:text-black font-bold text-primary-light my-4">
+          <button className="p-4 bg-primary-dark w-fit dark:bg-primary-light dark:text-black font-bold text-primary-light my-4" aria-label="magazine button">
             BUTTON
           </button>
           <div className="mt-8">
@@ -155,6 +156,7 @@ const Home = () => {
                 <button
                   type="submit"
                   className="px-4 py-2 bg-primary-dark dark:bg-gray-700 w-fit text-primary-light my-4"
+                  aria-label="newsletter signup"
                 >
                   SignUp
                 </button>
@@ -174,6 +176,7 @@ const Home = () => {
             onClick={() => navigate("/podcast")}
             className="flex gap-4 items-center font-bold text-base lg:text-lg"
             data-aos="fade-right"
+            aria-label="all podcasts"
           >
             ALL PODCASTS <FaArrowRightLong />
           </button>
@@ -192,6 +195,7 @@ const Home = () => {
             onClick={() => navigate("/authors")}
             className="flex gap-4 items-center font-bold text-base lg:text-lg"
             data-aos="fade-right"
+            aria-label="all authors"
           >
             ALL AUTHORS <FaArrowRightLong />
           </button>

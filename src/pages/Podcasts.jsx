@@ -111,7 +111,7 @@ const Podcasts = () => {
                   <div className="flex gap-1 md:gap-2">
                     <span className="font-bold">Duration:</span> {podcast?.duration}
                   </div>
-                  <button className="flex text-sm md:text-base gap-4 items-center font-bold" onClick={()=> handleNavigation(podcast, index+1)}>
+                  <button className="flex text-sm md:text-base gap-4 items-center font-bold" onClick={()=> handleNavigation(podcast, index+1)} aria-label="Listen links">
                     LISTEN <FaArrowRightLong />
                   </button>
                 </div>

@@ -57,7 +57,7 @@ const MagzinePost = () => {
 
             {/* Right Button */}
             <div className="flex gap-2 items-center w-full sm:w-auto justify-center sm:justify-normal">
-                <button className="h-fit border px-4 py-1 border-black dark:border-white rounded-full uppercase text-sm sm:text-lg">
+                <button className="h-fit border px-4 py-1 border-black dark:border-white rounded-full uppercase text-sm sm:text-lg" aria-label="CTA button">
                     {data?.cta || "Label"}
                 </button>
             </div>

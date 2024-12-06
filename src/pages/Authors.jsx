@@ -78,6 +78,7 @@ const Authors = () => {
                 <button 
                   className='flex text-base gap-2 md:gap-4 items-center font-bold sm:w-full md:w-fit px-2' 
                   onClick={()=> handleNavigate(index+1)}
+                  aria-label="about tap"
                 > 
                   About 
                   <FaArrowRightLong />

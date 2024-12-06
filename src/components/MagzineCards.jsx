@@ -53,7 +53,7 @@ const MagazineCards = ({cardData}) => {
               <span>{data?.duration}</span>
             </div>
           </div>
-          <button className="mt-4 md:mt-0 border px-4 py-1 border-black dark:border-white rounded-full text-sm md:text-base">
+          <button className="mt-4 md:mt-0 border px-4 py-1 border-black dark:border-white rounded-full text-sm md:text-base" aria-label="CTA button">
             {data?.cta}
           </button>
         </div>

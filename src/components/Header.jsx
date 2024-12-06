@@ -37,7 +37,7 @@ const Header = () => {
 
         {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-2xl focus:outline-none">
+          <button onClick={toggleMenu} className="text-2xl focus:outline-none" aria-label="hamburger toggle">
             <FaBars />
           </button>
         </div>
@@ -49,7 +49,7 @@ const Header = () => {
             <li><Link to="/podcast" className="hover:underline">Podcasts</Link></li>
             <li><Link to="/authors" className="hover:underline">Authors</Link></li>
           </ul>
-          <button onClick={toggleDarkMode} className="text-xl focus:outline-none">
+          <button onClick={toggleDarkMode} className="text-xl focus:outline-none" aria-label="theme toggle">
             {darkMode ? <FaSun className="text-white" /> : <FaMoon className="text-gray-800" />}
           </button>
         </div>
@@ -69,7 +69,7 @@ const Header = () => {
         </ul>
         <div className="flex justify-center items-center gap-4 py-2">
           <SocialLinks />
-          <button onClick={toggleDarkMode} className="text-xl focus:outline-none">
+          <button onClick={toggleDarkMode} className="text-xl focus:outline-none" aria-label="theme toggler">
             {darkMode ? <FaSun className="text-white" /> : <FaMoon className="text-gray-800" />}
           </button>
         </div>

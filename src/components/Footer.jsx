@@ -51,7 +51,11 @@ const Footer = () => {
               className="flex-1 py-2 px-4 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 focus:outline-none"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="w-fit sm:w-auto py-2 px-4 bg-gray-100 font-bold border-none text-primary-dark dark:bg-gray-800 dark:text-primary-light" onClick={handleNewsletterSubmit}>
+            <button 
+              className="w-fit sm:w-auto py-2 px-4 bg-gray-100 font-bold border-none text-primary-dark dark:bg-gray-800 dark:text-primary-light" 
+              onClick={handleNewsletterSubmit}
+              aria-label="Signup for newsletters"  
+            >
               SIGN UP
             </button>
           </div>

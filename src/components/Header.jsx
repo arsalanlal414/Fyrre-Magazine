@@ -32,17 +32,28 @@ const Header = () => {
     <header className="border-b border-slate-950 dark:border-white sm:py-3 pt-5 sm:pt-10">
       <div className="flex items-center justify-between">
         <Link to="/">
-          <img src={darkMode ? logoWhite : logo} alt="Fyrre Magazine" className="w-48 md:w-56" />
+          <picture>
+            <source srcSet={logo} type="image/webp" />
+            <source srcSet={logo} type="image/jpeg" />
+            <img
+              src={darkMode ? logoWhite : logo} 
+              alt="Fyrre Magazine" 
+              className="w-48 md:w-56"
+              loading="lazy"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/fallback-image.jpg'
+              }}
+            />
+          </picture>
         </Link>
 
-        {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-2xl focus:outline-none" aria-label="hamburger toggle">
             <FaBars />
           </button>
         </div>
 
-        {/* Navigation for Large Screens */}
         <div className="hidden md:flex items-center gap-6">
           <ul className="flex gap-6 text-lg font-normal">
             <li><Link to="/magazine" className="hover:underline">Magazine</Link></li>

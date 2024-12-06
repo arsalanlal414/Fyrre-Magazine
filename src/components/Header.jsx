@@ -39,7 +39,6 @@ const Header = () => {
               src={darkMode ? logoWhite : logo} 
               alt="Fyrre Magazine" 
               className="w-48 md:w-56"
-              loading="lazy"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = '/fallback-image.jpg'

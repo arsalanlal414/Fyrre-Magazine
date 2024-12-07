@@ -29,7 +29,7 @@ const MagazineCards = ({ cardData }) => {
     >
       <picture>
         {/* Use responsive image sources */}
-        <source srcSet={data.imgUrlWebP} type="image/webp" />
+        <source srcSet={data.imgUrl} type="image/webp" />
         <source srcSet={data.imgUrl} type="image/jpeg" />
         <img
           src={data.imgUrl}

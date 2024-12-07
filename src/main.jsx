@@ -10,9 +10,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <DataProvider>
       <DarkModeProvider>
-        <ApiProvider>
           <App />
-        </ApiProvider>
       </DarkModeProvider>
     </DataProvider>
   </StrictMode>

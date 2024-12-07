@@ -76,14 +76,14 @@ const Home = () => {
       <NewsTicker />  
 
       <img src={img} alt="dimitar" className='max-w-full max-h-max sm:hidden my-6' data-aos="fade-up"/>
-      <div className="w-full flex flex-wrap justify-between sm:pt-10 xl:py-16 sm:gap-8 lg:gap-0">
+      <div className="w-full flex flex-wrap justify-between sm:pt-10 xl:py-16 sm:gap-8 lg:gap-0" data-aos="fade-in">
         <div className="w-full lg:w-1/2">
-          <h3 className="text-4xl sm:text-6xl xl:text-8xl font-black leading-tight" data-aos="fade-right">
+          <h3 className="text-4xl sm:text-6xl xl:text-8xl font-black leading-tight">
             DON'T CLOSE<br className="hidden lg:inline" /> YOUR EYES
           </h3>
         </div>
 
-        <div className="w-full lg:w-1/2 flex flex-col justify-between gap-4" data-aos="fade-left">
+        <div className="w-full lg:w-1/2 flex flex-col justify-between gap-4" >
           <p className="text-base sm:text-lg leading-relaxed" >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas dui id ornare arcu odio ut sem. Cras ornare arcu dui vivamus arcu felis bibendum ut. Porttitor leo a diam.
           </p>

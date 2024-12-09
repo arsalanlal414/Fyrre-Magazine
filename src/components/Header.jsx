@@ -5,6 +5,7 @@ import logoWhite from "../assets/FyrreMagazine_logo.png";
 import { FaBars, FaSun, FaMoon } from 'react-icons/fa';
 import SocialLinks from './SocialLinks';
 import { useDarkMode } from '../hooks/DarkModeContext';
+import { GoDash } from 'react-icons/go';
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -54,7 +55,9 @@ const Header = () => {
             <li><Link to="/magazine" className="hover:underline">Magazine</Link></li>
             <li><Link to="/podcast" className="hover:underline">Podcasts</Link></li>
             <li><Link to="/authors" className="hover:underline">Authors</Link></li>
+            <li className='m-auto'><GoDash /></li>
           </ul>
+          <SocialLinks />
           <button onClick={toggleDarkMode} className="text-xl focus:outline-none" aria-label="theme toggle">
             {darkMode ? <FaSun className="text-white" /> : <FaMoon className="text-gray-800" />}
           </button>

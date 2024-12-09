@@ -77,8 +77,8 @@ const Home = () => {
 
       <img src={img} alt="dimitar" className='max-w-full max-h-max sm:hidden my-6' data-aos="fade-up"/>
       <div className="w-full flex flex-wrap justify-between sm:pt-10 xl:py-16 sm:gap-8 lg:gap-0" data-aos="fade-in">
-        <div className="w-full lg:w-1/2">
-          <h3 className="text-4xl sm:text-6xl xl:text-8xl font-black leading-tight">
+        <div className="w-full lg:w-1/2 content-center">
+          <h3 className="text-4xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-black leading-tight">
             DON'T CLOSE<br className="hidden lg:inline" /> YOUR EYES
           </h3>
         </div>
@@ -125,10 +125,10 @@ const Home = () => {
           <img
             src={magzineCover}
             alt="magazine cover"
-            className="w-full lg:w-[370px] mx-auto"
+            className="w-full lg:max-w-[320px]"
           />
           <button className="p-4 bg-primary-dark w-fit dark:bg-primary-light dark:text-black font-bold text-primary-light my-4" aria-label="magazine button">
-            BUTTON
+            ORDER
           </button>
           <div className="mt-8">
             <h3 className="text-lg font-bold">MOST POPULAR</h3>

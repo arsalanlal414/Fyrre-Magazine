@@ -34,7 +34,7 @@ const MagazineCards = ({ cardData }) => {
         <img
           src={data.imgUrl}
           alt={data?.title || 'Magazine Card'} 
-          className="w-full max-w-full md:max-w-[240px] object-cover"
+          className="w-full max-w-full lg:max-w-[240px] object-cover"
           loading="lazy" // Lazy loading
           onError={(e) => {
             e.target.onerror = null; // Prevent infinite loop
@@ -48,7 +48,7 @@ const MagazineCards = ({ cardData }) => {
           <p className="py-2 text-sm md:text-base">{data?.para}</p>
         </div>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mt-4">
-          <div className="flex flex-col lg:flex-row text-sm md:text-base gap-2 md:gap-4">
+          <div className="flex flex-col md:flex-row flex-wrap text-sm lg:text-base gap-2 md:gap-4">
             <div className="flex gap-1 md:gap-2">
               <span className="font-semibold">Text:</span>
               <span>{data?.name}</span>

@@ -119,7 +119,7 @@ const Home = () => {
             ALL ARTICLES <FaArrowRightLong />
           </button>
         </div>
-        <div className="flex flex-col lg:w-1/4 w-full sticky top-10 h-fit" data-aos="fade-in">
+        <div className="flex flex-col lg:w-1/4 w-full sticky top-0 h-fit" data-aos="fade-in">
           <h4 className="text-2xl mt-4 font-bold">Printmagazine</h4>
           <p className="text-6xl mb-6 font-bold">03/2022</p>
           <img

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const MagazineCards = ({ cardData }) => {
+const MagazineCards = ({ cardData, limit }) => {
   const navigate = useNavigate();
 
   const handleNavigation = (data, ind) => {
@@ -20,7 +20,7 @@ const MagazineCards = ({ cardData }) => {
     });
   }, []);
 
-  return cardData.map((data, index) => (
+  return cardData.slice(0, limit && limit).map((data, index) => (
     <article
       key={index}
       className="py-10 flex flex-col md:flex-row gap-6 md:gap-10 border-b border-black dark:border-white last:border-0 cursor-pointer"

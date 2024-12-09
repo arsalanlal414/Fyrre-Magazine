@@ -34,8 +34,8 @@ const Header = () => {
       <div className="flex items-center justify-between">
         <Link to="/">
           <picture>
-            <source srcSet={logo} type="image/webp" />
-            <source srcSet={logo} type="image/jpeg" />
+            <source srcSet={darkMode ? logoWhite : logo}  type="image/webp" />
+            <source srcSet={darkMode ? logoWhite : logo}  type="image/jpeg" />
             <img
               src={darkMode ? logoWhite : logo} 
               alt="Fyrre Magazine" 
